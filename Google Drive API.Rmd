@@ -1,0 +1,52 @@
+---
+title: "525 hw_Google Drive API"
+author: "Amanda Moeller"
+date: "4/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+First, install the googledrive package and log in to Google
+```{r}
+install.packages("googledrive")
+library(googledrive)
+
+drive_auth() #authorize Drive account and log in
+```
+
+I want to pull the data I'm using for my thesis:
+```{r}
+googledrive::drive_find(pattern="group spring 2019", n_max=10)
+# cool!
+```
+
+Now I want to do some stuff with Google Sheets
+```{r}
+install.packages("googlesheets4") #install & library the googlesheets4 package
+library(googlesheets4) 
+```
+
+Reading a spreadsheet:
+```{r}
+RME_newdata <- googlesheets4::read_sheet("1dcR4gNMG0mZJ4S6qxNsh1vGhmMo6fVmdukLGUtKJ7jg") #this is the ID of the sheet I want from chunk 3
+
+# It worked!
+```
+
+(I'm currently working on some R code to clean the data I uploaded above)
+
+
+
+
+
+
+
+
+
+
+
+
+
